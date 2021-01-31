@@ -18,7 +18,7 @@ const App = () => {
     const [isLanguage, setLanguage] = useState(false);
 
     function handleClickLanguage() {
-        setLanguage(true);
+        setLanguage(!isLanguage);
     }
 
     return (
