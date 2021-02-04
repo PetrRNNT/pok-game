@@ -2,20 +2,22 @@ import React, { useState } from 'react'
 import Menu from "./Menu";
 import Navbar from "./Navbar";
 
-const MenuHeader = () => {
+const MenuHeader = ({bgActive}) => {
 
-    const [isActive, setActive] = useState(false);
+    const [isOpen, setOpen] = useState(null);
 
     const handleClickButton = () => {
-        setActive(!isActive)
+        setOpen(prevState => !prevState);
     }
     return (
         <React.Fragment>
             <Menu
-                isActive={isActive}
+                isOpen={isOpen}
+                onClickMenu={handleClickButton}
             />
             <Navbar
-                isActive={isActive}
+                isOpen={isOpen}
+                bgActive={bgActive}
                 onClickMenu={handleClickButton}
             />
         </React.Fragment>

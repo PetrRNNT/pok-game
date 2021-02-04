@@ -1,0 +1,20 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.changeLanguage{
+    position: relative;
+}
+
+.changeLanguage button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.league{
+    display: block;
+    margin: 0 auto;
+}
