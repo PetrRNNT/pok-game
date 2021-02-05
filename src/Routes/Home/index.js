@@ -1,24 +1,17 @@
 import React, {useState} from "react";
 import Header from "../../Components/Header/header";
 import Layout from "../../Components/Layout/layout";
-import Footer from "../../Components/Footer/footer";
-
-import pokemons from "../../pokemon-cards.json"
 
 import style from './style.module.css'
 
 import urlBgImage from '../../image/bg2.jpg';
 import urlBgImage2 from '../../image/bg1.jpg';
-import PokemonCard from "../../Components/PokemonCard/pokemoncard";
-import MenuHeader from "../../Components/MenuHeader/MenuHeader";
+import imgLeague from "../../image/rate-this-image.png";
 
-const Pokemons = pokemons;
 
-const HomePage = ({ onChangePage }) => {
 
-    const handleClickButton = (page) => {
-        onChangePage && onChangePage(page);
-    }
+const HomePage = () => {
+
     const [isLanguage, setLanguage] = useState(false);
 
     function handleClickLanguage() {
@@ -28,11 +21,10 @@ const HomePage = ({ onChangePage }) => {
     return (
 
         <React.Fragment>
-            <MenuHeader />
+
             <Header
                 title="Pokemon Game"
                 descr="This is simple triple triad card game!"
-                onClickButton={handleClickButton}
             />
 
             <Layout
@@ -40,7 +32,7 @@ const HomePage = ({ onChangePage }) => {
                 urlBg={urlBgImage}
                 id={'l-1'}
             >
-                <div className="changeLanguage">
+                <div className={style.changeLanguage}>
                     <button onClick={handleClickLanguage}>{isLanguage ? 'EN' : 'RU'}</button>
                     {
                         isLanguage ?
@@ -68,18 +60,8 @@ const HomePage = ({ onChangePage }) => {
                 colorBg="#DFCFBE"
                 id={'l-2'}
             >
-                <div className="flex">
-                    {
-                        Pokemons.map(item => <PokemonCard
-                            name={item.name}
-                            img={item.img}
-                            id={item.id}
-                            values={item.values}
-                            type={item.type}
-                            key={item.id}
-                        />)
-                    }
-
+                <div>
+                    <img src={imgLeague} alt="League" className={style.league}/>
                 </div>
             </Layout>
 
@@ -88,7 +70,7 @@ const HomePage = ({ onChangePage }) => {
                 urlBg={urlBgImage2}
                 id={'l-3'}
             >
-                <div className="changeLanguage">
+                <div className={style.changeLanguage}>
                     <button onClick={handleClickLanguage}>{isLanguage ? 'EN' : 'RU'}</button>
                     {
                         isLanguage ?
@@ -115,7 +97,7 @@ const HomePage = ({ onChangePage }) => {
                 </div>
             </Layout>
 
-            <Footer/>
+
 
         </React.Fragment>
 

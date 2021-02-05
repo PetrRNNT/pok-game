@@ -1,26 +1,30 @@
 import { useState } from 'react'
 import cn from 'classnames'
+import logo from '../../../image/super-pokemon.png'
 
 import style from './style.module.css'
 
-const Navbar = ({isActive, onClickMenu}) => {
 
-    const handleClick = () => {
-        onClickMenu && onClickMenu();
-    }
+
+const Navbar = ({isOpen, onClickMenu, bgActive = null}) => {
+
 
     return (
-        <nav id={style.navbar}>
+        <nav id={style.navbar} className={cn({
+            [style.bgActive]: bgActive
+        })}>
             <div className={style.navWrapper}>
                 <p className={style.brand}>
-                    LOGO
+                    <img src={logo} alt="pika"/>
                 </p>
-                <a
-                    className={cn(style.menuButton, {[style.active]: isActive})}
-                    onClick={handleClick}
+                <div
+                    className={cn(style.menuButton, {
+                        [style.active]: isOpen
+                    })}
+                    onClick={onClickMenu}
                 >
                     <span/>
-                </a>
+                </div>
             </div>
         </nav>
     )

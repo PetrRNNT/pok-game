@@ -1,0 +1,53 @@
+body{
+    background-color: #fff;
+}
+.content{
+    position: relative;
+    min-height: 100vh;
+}
+.content:before{
+    content: '';
+    position: absolute;
+    width: 109px;
+    height: 300px;
+    top: 56%;
+    left: 50%;
+    background: url("../../image/no-pok.gif") no-repeat;
+    z-index: -1;
+    background-size: 200%;
+    background-position-x: center;
+}
+.content h2{
+    min-height: 100vh;
+    position: absolute;
+    width: 100vw;
+}
+.content h2 span{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-41%, -50%);
+    font-size: 50px;
+    text-align: center;
+    line-height: 0vh;
+}
+.content h2 img{
+    margin: 0 auto;
+    width: 25vw;
+    display: block;
+}
+@media (max-width: 480px){
+    .content h2 span{
+        top: 60%;
+        font-size: 20px;
+    }
+    .content h2 img{
+        margin: 100px auto;
+        width: 100vw;
+        display: block;
+    }
+    .content:before {
+        top: -15px;
+        left: -8%;
+    }
+}
