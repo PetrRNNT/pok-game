@@ -2,7 +2,9 @@ import cn from 'classnames';
 import cardBackSide from '../../image/card-back-side.jpg';
 
 import style from './style.module.css';
+
 const PokemonCard = ({name, img, id, type, values, isActive, handlerClickCard}) => {
+
     const onClickCard = () => {
         handlerClickCard && handlerClickCard(id);
     }
