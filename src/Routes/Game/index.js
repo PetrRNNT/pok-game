@@ -24,7 +24,11 @@ const GamePage = () => {
 
                 if (pokemon.id === id) {
                     pokemon.isActive = !pokemon.isActive;
-                    database.ref('pokemons/' + item[0]).set(pokemon);
+                    database.ref('pokemons/' + item[0]).set(pokemon).then(
+                        setPokemons(prevState => {
+                            return {...prevState, [item[0]] : pokemon}
+                        })
+                    )
                 };
 
                 acc[item[0]] = pokemon;
@@ -62,14 +66,16 @@ const GamePage = () => {
         }
     }
 
-
-
     const addNewPokemon = () => {
         const newKey = database.ref().child('pokemons').push().key
         const updates = {}
         NewPokemon.id = Math.floor(Math.random() * 1000) + 1
         updates['/pokemons/' + newKey] = NewPokemon
-        return database.ref().update(updates)
+        return database.ref().update(updates).then(
+            setPokemons(prevState => {
+                return {...prevState, [newKey] : NewPokemon}
+            })
+        )
     }
 
 
