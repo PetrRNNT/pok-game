@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import cn from 'classnames'
 import logo from '../../../image/super-pokemon.png'
 
