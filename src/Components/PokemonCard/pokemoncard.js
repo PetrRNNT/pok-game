@@ -1,9 +1,8 @@
 import cn from 'classnames';
-import cardBackSide from '../../image/card-back-side.jpg';
 
 import style from './style.module.css';
 
-const PokemonCard = ({name, img, id, type, values, isActive, handlerClickCard}) => {
+const PokemonCard = ({name, img, id, type, values, isActive, isSelected, handlerClickCard, minimize, className}) => {
 
     const onClickCard = () => {
         handlerClickCard && handlerClickCard(id);
@@ -11,36 +10,41 @@ const PokemonCard = ({name, img, id, type, values, isActive, handlerClickCard}) 
 
     return (
 
-        <div className={style.root} onClick={onClickCard}>
-            <div className={cn(style.pokemonCard, {[style.active]: isActive})}>
-                <div className={style.cardFront}>
-                    <div className={cn(style.wrap, style.front)}>
-                        <div className={cn(style.pokemon, style[type])}>
-                            <div className={style.values}>
-                                <div className={cn(style.count, style.top)}> {values.top}</div>
-                                <div className={cn(style.count, style.right)}> {values.right}</div>
-                                <div className={cn(style.count, style.bottom)}> {values.bottom}</div>
-                                <div className={cn(style.count, style.left)}> {values.left}</div>
-                            </div>
-                            <div className={style.imgContainer}>
-                                <img src={img} alt={name}/>
-                            </div>
-                            <div className={style.info}>
-                                <span className={style.number}>#{id}</span>
-                                <h3 className={style.name}> {name} </h3>
-                                <small className={style.type}>Type: <span> {type} </span></small>
-                            </div>
+        <div className={cn(className, style.pokemonCard, {
+            [style.active]: isActive,
+            [style.selected]: isSelected === true
+        })}
+        onClick={onClickCard}
+        >
+            <div className={style.cardFront}>
+                <div className={cn(style.wrap, style.front)}>
+                    <div className={cn(style.pokemon, style[type])}>
+                        <div className={style.values}>
+                            <div className={cn(style.count, style.top)}>{values.top}</div>
+                            <div className={cn(style.count, style.right)}>{values.right}</div>
+                            <div className={cn(style.count, style.bottom)}>{values.bottom}</div>
+                            <div className={cn(style.count, style.left)}>{values.left}</div>
                         </div>
+                        <div className={style.imgContainer}>
+                            <img src={img} alt={name} />
+                        </div>
+                        { !minimize && (<div className={style.info}>
+                            <span className={style.number}>#{id}</span>
+                            <h3 className={style.name}>
+                                {name}
+                            </h3>
+                            <small className={style.type}>
+                                Type: <span>{type}</span>
+                            </small>
+                        </div>) }
                     </div>
                 </div>
-
-                <div className={style.cardBack}>
-                    <div className={cn(style.wrap, style.back)}>
-                        <img src={cardBackSide} alt={name}/>
-                    </div>
-                </div>
-
             </div>
+
+            <div className={style.cardBack}>
+                <div className={cn(style.wrap, style.back)} />
+            </div>
+
         </div>
 
     );

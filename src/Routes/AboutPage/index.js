@@ -1,4 +1,3 @@
-import MenuHeader from "../../Components/MenuHeader/MenuHeader";
 import style from "./style.module.css";
 
 const AboutPage = () => {
