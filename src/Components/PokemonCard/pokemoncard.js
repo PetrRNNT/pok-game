@@ -12,7 +12,7 @@ const PokemonCard = ({name, img, id, type, values, isActive, isSelected, handler
 
         <div className={cn(className, style.pokemonCard, {
             [style.active]: isActive,
-            [style.selected]: isSelected === true
+            [style.selected]: isSelected,
         })}
         onClick={onClickCard}
         >

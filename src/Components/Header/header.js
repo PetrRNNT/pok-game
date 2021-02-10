@@ -3,8 +3,8 @@ import cn from "classnames";
 
 import style from './style.module.css'
 
-const Header = ({title, descr}) => {
 
+const Header = ({title, descr}) => {
 
     return (
         <header className={style.root}>
