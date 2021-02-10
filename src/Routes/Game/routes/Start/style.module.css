@@ -8,6 +8,7 @@
 .cardRoot{
     width: 268px;
     height: 388px;
+    margin: 15px;
 }
 .btn {
     margin: 20px auto;
@@ -34,6 +35,8 @@
     7px 7px 20px 0px rgba(0,0,0,.1),
     4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
+    text-align: center;
+    line-height: 30px;
 }
 .btn {
     border: none;
