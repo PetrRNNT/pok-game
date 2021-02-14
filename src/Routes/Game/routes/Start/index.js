@@ -60,7 +60,7 @@ const StartPage = () => {
                         key={key}
                         isActive={true}
                         handlerClickCard={() => {
-                            if (Object.keys(SelectedContext.pokemons).length <= 5 /*|| isSelected*/){
+                            if (Object.keys(SelectedContext.pokemons).length < 5 || isSelected){
                                 handlerClickCard(key)
                             }
                         }}
