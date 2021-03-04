@@ -30,7 +30,7 @@ const StartPage = () => {
         setPokemons(pokemonsRedux)
     }, [pokemonsRedux])
 
-    console.log(pokemonsRedux)
+    console.log('pokemonsRedux ', pokemonsRedux)
     console.log(SelectedContext.pokemons)
     const handlerClickCard = (key) => {
         const pokemon = {...pokemons[key]}
