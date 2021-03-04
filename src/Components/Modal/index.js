@@ -42,7 +42,6 @@ const Modal = ({isOpen, title, children, onCloseModal}) => {
                 </div>
                 <div className={style.content}>
                     { children }
-                    <LoginForm />
             </div>
             </div>
         </div>
