@@ -13,6 +13,7 @@ import {FireBaseContext} from "./context/firebaseContext";
 import style from './style.module.css';
 import Firebase from "./service/firebase";
 import React from "react";
+import FirebaseClass from "./service/firebase";
 
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
     const isPadding = location.pathname === '/' || location.pathname === '/game/board'
 
     return (
-        <FireBaseContext.Provider value={new Firebase()}>
+        <FireBaseContext.Provider value={FirebaseClass}>
             <Switch>
                 <Route path="/404" component={NotFound}/>
                 <Route>

@@ -6,22 +6,32 @@ import {PokemonContext} from "../../../../context/pokemonContext";
 import cn from "classnames";
 
 import style from './style.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {getPokemonsAsync, selectPokemonsData, selectPokemonsLoading} from "../../../../store/pokemons";
 
 const StartPage = () => {
     const firebase = useContext(FireBaseContext)
     const SelectedContext = useContext(PokemonContext)
+    const isLoading = useSelector(selectPokemonsLoading)
+    const pokemonsRedux = useSelector(selectPokemonsData)
+    const dispatch = useDispatch()
+
     const [pokemons, setPokemons] = useState({})
     const history = useHistory()
 
-    useEffect(() => {
-        firebase.getPokemonSoket((pokemons) => {
-            setPokemons(pokemons)
-        })
 
-        return () => firebase.offPokemonSoket()
-        // eslint-disable-next-line
+    useEffect(() => {
+        SelectedContext.inSelect(null)
+
+        dispatch(getPokemonsAsync())
     }, [])
 
+    useEffect(() => {
+        setPokemons(pokemonsRedux)
+    }, [pokemonsRedux])
+
+    console.log(pokemonsRedux)
+    console.log(SelectedContext.pokemons)
     const handlerClickCard = (key) => {
         const pokemon = {...pokemons[key]}
         SelectedContext.inSelect(key, pokemon)
