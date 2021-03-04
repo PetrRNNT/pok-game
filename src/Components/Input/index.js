@@ -1,6 +1,7 @@
 import style from './style.module.css'
 
 const Input = ({value, label, type = "text", name, onChange, required}) => {
+
     return (
         <div className={style.root}>
             <input 

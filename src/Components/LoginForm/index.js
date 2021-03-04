@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Input from '../Input'
+import style from './style.module.css'
 
 
 const LoginForm = ({onSubmit}) => {
@@ -19,25 +20,26 @@ const LoginForm = ({onSubmit}) => {
         setPassword('')
     }
 
-    const onChangeHandler = (event) => {
-        console.log({value: event.target.value})
-    }
-
     return (
-        <form onSubmit={handlerOnSubmit}>
+        <form
+            onSubmit={handlerOnSubmit}
+        >
             <Input 
                 label="Email"
                 value={email}
                 name="email"
-                onChange={onChangeHandler}
+                onChange={(e) => setEmail(e.target.value)}
             />
-            <Input 
+            <Input
                 label="Password"
                 value={password}
                 type="password"
                 name="password"
-                onChange={onChangeHandler}
+                onChange={(e) => setPassword(e.target.value)}
             />
+            <button>
+                signin
+            </button>
         </form>
     )
 }
