@@ -7,15 +7,20 @@ import style from './style.module.css'
 import urlBgImage from '../../image/bg2.jpg';
 import urlBgImage2 from '../../image/bg1.jpg';
 import imgLeague from "../../image/rate-this-image.png";
+import {useDispatch, useSelector} from "react-redux";
+import {plusAction, selectCount} from "../../store/counter";
 
 
 
 const HomePage = () => {
-
+    const count = useSelector(selectCount)
+    const dispatch = useDispatch()
+    console.log('count', count)
     const [isLanguage, setLanguage] = useState(false);
 
     function handleClickLanguage() {
         setLanguage(!isLanguage);
+        dispatch(plusAction(1))
     }
 
     return (
